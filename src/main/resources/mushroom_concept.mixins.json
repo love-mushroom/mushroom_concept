@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.7",
+  "package": "com.mogumogumo.mushroom_concept.Mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "mushroom_concept.refmap.json",
+  "mixins": [
+    "FlyingMoveControlMixin",
+    "WitherMixin"
+  ],
+  "client": [
+  ],
+  "server": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

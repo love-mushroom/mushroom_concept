@@ -15,7 +15,7 @@ public class Outplane extends BattleModifier {
         if (context.getLivingTarget() != null && context.getAttacker() instanceof Player player) {
             LivingEntity target = context.getLivingTarget();
             player.sendSystemMessage(Component.translatable("曼巴out"));
-            target.setDeltaMovement(0,-100,0);
+            target.getPersistentData().putBoolean("fly_false",true);
         }
     }
 }
