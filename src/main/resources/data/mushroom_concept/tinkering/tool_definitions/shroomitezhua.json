@@ -1,0 +1,115 @@
+{
+  "modules": [
+    {
+      "type": "tconstruct:part_stats",
+      "parts": [
+        {
+          "item": "tconstruct:hammer_head",
+          "scale": 0.75
+        },
+        "tconstruct:tough_handle",
+        "mushroom_concept:entity_box",
+        {
+          "item": "tconstruct:large_plate",
+          "scale": 0.25
+        }
+      ],
+      "primary_part": 0
+    },
+    {
+      "type": "tconstruct:default_materials",
+      "materials": [
+        {
+          "type": "tconstruct:random",
+          "tier": 1
+        },
+        {
+          "type": "tconstruct:random",
+          "tier": 1
+        },
+        {
+          "type": "tconstruct:random",
+          "tier": 1
+        },
+        {
+          "type": "tconstruct:random",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "type": "tconstruct:base_stats",
+      "stats": {
+        "tconstruct:attack_damage": 1.2,
+        "tconstruct:attack_speed": 1.5
+      }
+    },
+    {
+      "type": "tconstruct:multiply_stats",
+      "multipliers": {
+        "tconstruct:attack_damage": 0.4,
+        "tconstruct:attack_speed": 1.5,
+        "tconstruct:durability": 3.0,
+        "tconstruct:mining_speed": 1.85
+      }
+    },
+    {
+      "type": "tconstruct:modifier_slots",
+      "slots": {
+        "abilities": 1,
+        "upgrades": 2
+      }
+    },
+    {
+      "type": "tconstruct:traits",
+      "traits": [
+        {
+          "level": 1,
+          "name": "tconstruct:tilling"
+        },
+        {
+          "level": 1,
+          "name": "tconstruct:shears"
+        },
+        {
+          "level": 1,
+          "name": "tconstruct:harvest"
+        }
+      ]
+    },
+    {
+      "type": "tconstruct:tool_actions",
+      "tool_actions": [
+        "pickaxe_dig",
+        "shovel_dig",
+        "axe_dig",
+        "hoe_dig"
+      ]
+    },
+    {
+      "type": "tconstruct:is_effective",
+      "predicate_type": "mantle:tag",
+      "tag": "minecraft:mineable/pickaxe"
+    },
+    {
+      "type": "tconstruct:mining_speed_modifier",
+      "modifier": 2.0,
+      "predicate_type": "mantle:and",
+      "predicates": [
+        {
+          "type": "mantle:tag",
+          "tag": "minecraft:mineable/axe"
+        },
+        {
+          "type": "mantle:inverted",
+          "inverted_type": "mantle:tag",
+          "tag": "tconstruct:mineable/mattock"
+        }
+      ]
+    },
+    {
+      "type": "tconstruct:vein_aoe",
+      "max_distance": 0
+    }
+  ]
+}

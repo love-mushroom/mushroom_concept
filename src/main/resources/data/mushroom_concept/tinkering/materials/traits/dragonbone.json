@@ -1,0 +1,12 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "mushroom_concept:dragon_angry"
+    },
+    {
+      "level": 2,
+      "name": "tconstruct:pierce"
+    }
+  ]
+}

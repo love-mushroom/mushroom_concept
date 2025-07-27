@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:alloy",
+  "inputs": [
+    {
+      "name": "tconstruct:molten_steel",
+      "amount": 180
+    },
+    {
+      "name": "tconstruct:molten_obsidian",
+      "amount": 500
+    },
+    {
+      "name": "mushroom_concept:molten_blood",
+      "amount": 500
+    }
+  ],
+  "result": {
+    "fluid": "mushroom_concept:molten_blood_steel",
+    "amount": 180
+  },
+  "temperature": 1200
+}

@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "rats:oratchalcum_ingot"
+  },
+  "result": {
+    "fluid": "mushroom_concept:molten_oratchalcum",
+    "amount": 90
+  },
+  "temperature": 1480,
+  "time": 20
+}

@@ -1,0 +1,14 @@
+{
+  "perStat": {
+    "mushroom_concept:arrow_fletching": [
+      {
+        "name": "tconstruct:overgrowth",
+        "level": 1
+      },
+      {
+        "name": "tconstruct:overslime",
+        "level": 1
+      }
+    ]
+  }
+}

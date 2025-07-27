@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "composite_material:dungeon_steel_ingot"
+    }
+  ],
+  "level": 1,
+  "result": "mushroom_concept:shuaguai",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  }
+}

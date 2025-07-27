@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "mushroom_concept:blood_ball"
+  },
+  "result": {
+    "fluid": "mushroom_concept:molten_blood",
+    "amount": 250
+  },
+  "temperature": 80,
+  "time": 20
+}

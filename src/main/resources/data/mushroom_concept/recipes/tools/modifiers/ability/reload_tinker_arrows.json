@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "mushroom_concept:arrow"
+    }
+  ],
+  "level": 1,
+  "result": "mushroom_concept:reload_tinker_arrows",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/ranged/bows"
+  }
+}

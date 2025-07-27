@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/ingot"
+  },
+  "cast_consumed": false,
+  "fluid": {
+    "name": "mushroom_concept:molten_chariot_slime",
+    "amount": 90
+  },
+  "result": "mushroom_concept:chariot_slime",
+  "cooling_time": 200
+}

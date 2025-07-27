@@ -1,0 +1,31 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "head1": "mushroom_concept:item/tool/shroom/1",
+    "head2": "mushroom_concept:item/tool/shroom/3",
+    "head3": "mushroom_concept:item/tool/shroom/4",
+    "binding": "mushroom_concept:item/tool/shroom/2"
+  },
+  "modifier_roots": [
+    "mushroom_concept:item/tool/shroom/modifiers/"
+  ],
+  "parts": [
+    {
+      "name": "head1",
+      "index": 0
+    },
+    {
+      "name": "binding",
+      "index": 1
+    },
+    {
+      "name": "head2",
+      "index": 2
+    },
+    {
+      "name": "head3",
+      "index": 3
+    }
+  ]
+}

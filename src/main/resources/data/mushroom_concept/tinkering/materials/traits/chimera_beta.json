@@ -1,0 +1,12 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "mushroom_concept:principle_of_sufficient_reason"
+    },
+    {
+      "level": 1,
+      "name": "mushroom_concept:vice"
+    }
+  ]
+}

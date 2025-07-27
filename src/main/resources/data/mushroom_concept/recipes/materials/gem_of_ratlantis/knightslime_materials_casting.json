@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_fluid",
+  "fluid": {
+    "name": "mushroom_concept:molten_gem_of_ratlantis",
+    "amount": 90
+  },
+  "temperature": 1480,
+  "output": "mushroom_concept:gem_of_ratlantis"
+}

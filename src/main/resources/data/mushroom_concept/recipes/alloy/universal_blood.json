@@ -1,0 +1,34 @@
+{
+  "type": "tconstruct:alloy",
+  "inputs": [
+    {
+      "name": "mushroom_concept:molten_blood",
+      "amount": 250
+    },
+    {
+      "name": "tconstruct:blazing_blood",
+      "amount": 250
+    },
+    {
+      "name": "tconstruct:molten_diamond",
+      "amount": 250
+    },
+    {
+      "name": "tconstruct:molten_ender",
+      "amount": 250
+    },
+    {
+      "name": "tconstruct:molten_emerald",
+      "amount": 250
+    },
+    {
+      "name": "tconstruct:molten_amethyst",
+      "amount": 250
+    }
+  ],
+  "result": {
+    "fluid": "mushroom_concept:universal_blood",
+    "amount": 250
+  },
+  "temperature": 1500
+}

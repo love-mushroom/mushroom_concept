@@ -1,0 +1,24 @@
+{
+  "parts": [
+    {"path": "mushroom_concept:item/tool/shroom/1", "stat_type": "tconstruct:head"},
+    {"path": "mushroom_concept:item/tool/shroom/2", "stat_type": "tconstruct:head"},
+    {"path": "mushroom_concept:item/tool/shroom/3", "stat_type": "tconstruct:head"},
+    {"path": "mushroom_concept:item/tool/shroom/4", "stat_type": "tconstruct:head"},
+
+    {"path": "mushroom_concept:item/tool/nine_ring/1", "stat_type": "tconstruct:head"},
+    {"path": "mushroom_concept:item/tool/nine_ring/2", "stat_type": "tconstruct:handle"},
+    {"path": "mushroom_concept:item/tool/nine_ring/3", "stat_type": "tconstruct:binding"},
+    {"path": "mushroom_concept:item/tool/nine_ring/4", "stat_type": "tconstruct:head"},
+
+    {"path": "mushroom_concept:item/tool/shuriken/shuriken1", "stat_type": "tconstruct:head"},
+    {"path": "mushroom_concept:item/tool/shuriken/shuriken2", "stat_type": "tconstruct:head"},
+    {"path": "mushroom_concept:item/tool/shuriken/shuriken3", "stat_type": "tconstruct:head"},
+    {"path": "mushroom_concept:item/tool/shuriken/shuriken4", "stat_type": "tconstruct:head"},
+
+    {"path": "mushroom_concept:fluid/slime/flowing", "stat_type": "tconstruct:head"},
+    {"path": "mushroom_concept:fluid/slime/still", "stat_type": "tconstruct:head"},
+    {"path": "mushroom_concept:fluid/none1/flowing", "stat_type": "tconstruct:head"},
+    {"path": "mushroom_concept:fluid/none1/still", "stat_type": "tconstruct:head"}
+  ],
+  "replace": false
+}

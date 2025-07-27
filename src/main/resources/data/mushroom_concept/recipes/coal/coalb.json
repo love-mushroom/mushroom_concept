@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "minecraft:coal"
+  },
+  "result": {
+    "fluid": "mushroom_concept:molten_coal",
+    "amount": 250
+  },
+  "temperature": 600,
+  "time": 20
+}

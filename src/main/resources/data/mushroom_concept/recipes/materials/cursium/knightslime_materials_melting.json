@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "mushroom_concept:cursium",
+  "temperature": 1480,
+  "result": {
+    "fluid": "mushroom_concept:molten_cursium",
+    "amount": 90
+  }
+}

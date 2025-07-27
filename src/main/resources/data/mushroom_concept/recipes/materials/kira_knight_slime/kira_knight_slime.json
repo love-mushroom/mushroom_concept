@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:material_fluid",
+  "input": "mushroom_daydream:knightslime",
+  "fluid": {
+    "fluid": "mushroom_concept:universal_blood",
+    "amount": 250
+  },
+  "temperature": 10,
+  "output": "mushroom_concept:kira_knight_slime"
+}

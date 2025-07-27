@@ -1,0 +1,10 @@
+{
+  "type": "tconstruct:melting_fuel",
+  "duration": 100,
+  "fluid": {
+    "amount": 10,
+    "fluid": "mushroom_concept:molten_coal"
+  },
+  "rate": 10,
+  "temperature": 980
+}

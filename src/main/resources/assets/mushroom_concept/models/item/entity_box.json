@@ -1,0 +1,7 @@
+{
+  "loader": "tconstruct:material",
+  "parent": "forge:item/default",
+  "textures": {
+    "texture": "mushroom_concept:item/tool/entity"
+  }
+}

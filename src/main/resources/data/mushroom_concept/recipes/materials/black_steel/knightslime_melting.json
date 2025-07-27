@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "cataclysm:black_steel_ingot"
+  },
+  "result": {
+    "fluid": "mushroom_concept:molten_black_steel",
+    "amount": 90
+  },
+  "temperature": 980,
+  "time": 20
+}

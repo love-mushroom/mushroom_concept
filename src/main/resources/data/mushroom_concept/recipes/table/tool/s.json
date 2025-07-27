@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:part_builder",
+  "cost": 3,
+  "pattern": "mushroom_concept:shield_thing",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
+    },
+    {
+      "item": "mushroom_concept:shield_thing_cast"
+    }
+  ],
+  "result": {
+    "item": "mushroom_concept:shield_thing"
+  }
+}

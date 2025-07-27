@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "mushroom_concept:ignitium",
+  "temperature": 1480,
+  "result": {
+    "fluid": "mushroom_concept:molten_ignitium",
+    "amount": 90
+  }
+}

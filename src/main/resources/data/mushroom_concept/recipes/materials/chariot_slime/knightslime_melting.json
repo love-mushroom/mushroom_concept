@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "mushroom_concept:chariot_slime"
+  },
+  "result": {
+    "fluid": "mushroom_concept:molten_chariot_slime",
+    "amount": 90
+  },
+  "temperature": 1350,
+  "time": 20
+}

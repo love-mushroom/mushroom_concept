@@ -1,0 +1,28 @@
+{
+  "icon": {
+    "item": "tconstruct:plate_shield",
+    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#head\",\"tconstruct:ui_render#handle\",\"tconstruct:ui_render#extra\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
+  },
+  "input_slots": [
+    {
+      "filter": {
+        "item": "tconstruct:shield_core"
+      },
+      "icon": "tconstruct:shield_core",
+      "translation_key": "item.tconstruct.shield_core",
+      "x": 32,
+      "y": 32
+    },
+    {
+      "filter": {
+        "item": "mushroom_concept:shield_thing"
+      },
+      "icon": "mushroom_concept:shield_thing",
+      "translation_key": "item.mushroom_concept.shield_thing",
+      "x": 32,
+      "y": 56
+    }
+  ],
+  "sortIndex": 2,
+  "translation_key": "item.tconstruct.plate_shield"
+}

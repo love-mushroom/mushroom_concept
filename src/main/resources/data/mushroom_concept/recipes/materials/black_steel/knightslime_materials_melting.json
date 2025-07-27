@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "mushroom_concept:black_steel",
+  "temperature": 980,
+  "result": {
+    "fluid": "mushroom_concept:molten_black_steel",
+    "amount": 90
+  }
+}

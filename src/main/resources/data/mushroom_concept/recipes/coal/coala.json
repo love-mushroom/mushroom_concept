@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:damagable_melting",
+  "byproducts": [
+    {
+      "amount": 100,
+      "tag": "tconstruct:magma"
+    }
+  ],
+  "ingredient": {
+    "item": "minecraft:deepslate_coal_ore"
+  },
+  "result": {
+    "amount": 300,
+    "fluid": "mushroom_concept:molten_coal",
+    "unit_size": 10
+  },
+  "temperature": 600,
+  "time": 20
+}

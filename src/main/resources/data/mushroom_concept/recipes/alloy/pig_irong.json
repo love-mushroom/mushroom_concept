@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:alloy",
+  "inputs": [
+    {
+      "name": "mushroom_concept:molten_blood",
+      "amount": 250
+    },
+    {
+      "name": "tconstruct:molten_iron",
+      "amount": 180
+    }
+  ],
+  "result": {
+    "fluid": "tconstruct:molten_pig_iron",
+    "amount": 180
+  },
+  "temperature": 890
+}

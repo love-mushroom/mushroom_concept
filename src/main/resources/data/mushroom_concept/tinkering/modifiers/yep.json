@@ -1,0 +1,10 @@
+{
+  "level_display": "tconstruct:single_level",
+  "modules": [
+    {
+      "type": "tconstruct:mob_disguise",
+      "tag": "minecraft:undead"
+    }
+  ],
+  "tooltip_display": "always"
+}

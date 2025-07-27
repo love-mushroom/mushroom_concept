@@ -1,0 +1,24 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "mushroom_concept:ratcopperking"
+    },
+    {
+      "level": 1,
+      "name": "mushroom_concept:ratcoppertion"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "mushroom_concept:ratcopperarmor"
+      },
+      {
+        "level": 1,
+        "name": "mushroom_concept:ratcoppertion"
+      }
+    ]
+  }
+}

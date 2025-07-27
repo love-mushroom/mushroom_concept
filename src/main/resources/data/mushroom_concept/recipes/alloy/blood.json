@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:alloy",
+  "inputs": [
+    {
+      "name": "tconstruct:meat_soup",
+      "amount": 250
+    },
+    {
+      "name": "tconstruct:liquid_soul",
+      "amount": 250
+    }
+  ],
+  "result": {
+    "fluid": "mushroom_concept:molten_blood",
+    "amount": 500
+  },
+  "temperature": 10
+}

@@ -1,0 +1,51 @@
+package com.mogumogumo.mushroom_concept.modifiers.Rat;
+
+import com.github.alexthe666.rats.server.entity.rat.Rat;
+import com.github.alexthe666.rats.server.entity.rat.TamedRat;
+import com.mogumogumo.mushroom_concept.extend.superclass.ArmorModifier;
+import com.mogumogumo.mushroom_concept.extend.superclass.BattleModifier;
+import com.mogumogumo.mushroom_concept.register.MushRatModifiers;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.WitherSkeleton;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.NotNull;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import slimeknights.tconstruct.library.modifiers.hook.armor.ModifyDamageModifierHook;
+import slimeknights.tconstruct.library.module.ModuleHookMap;
+import slimeknights.tconstruct.library.tools.context.EquipmentContext;
+import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
+import slimeknights.tconstruct.tools.TinkerModifiers;
+
+public class RatArmor extends BattleModifier implements ModifyDamageModifierHook {
+    @Override
+    protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
+        hookBuilder.addHook(this, ModifierHooks.MODIFY_DAMAGE);
+    }
+    @Override
+    public float modifyDamageTaken(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, EquipmentContext context, @NotNull EquipmentSlot slotType, @NotNull DamageSource source, float amount, boolean isDirectDamage) {
+        LivingEntity entity = context.getEntity();
+        if (entity instanceof Player player) {
+            float a= (float) (1-(0.04*modifier.getLevel()));
+            return amount * a ;
+        }
+        if (entity instanceof TamedRat tamedRat) {
+            if (modifier.getLevel()<5) {
+                float a = (float) (1 - (0.1 * modifier.getLevel()));
+                return amount * a - modifier.getLevel();
+            }
+            else {
+                float a = (float) (0.5);
+                return amount * a - modifier.getLevel();
+            }
+        }
+        return amount;
+    }
+}

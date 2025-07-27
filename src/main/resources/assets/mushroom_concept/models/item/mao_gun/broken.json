@@ -1,0 +1,27 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "tconstruct:item/base/crossbow",
+  "textures": {
+    "limb": "mushroom_concept:item/tool/mao_gun/grip_bottom_1",
+    "body": "mushroom_concept:item/tool/mao_gun/grip_top_1",
+    "bowstring": "mushroom_concept:item/tool/mao_gun/limb_1"
+  },
+  "modifier_roots": [
+    "mushroom_concept:item/tool/mao_gun/modifiers/broken/",
+    "mushroom_concept:item/tool/mao_gun/modifiers/"
+  ],
+  "parts": [
+    {
+      "name": "limb",
+      "index": 0
+    },
+    {
+      "name": "body",
+      "index": 1
+    },
+    {
+      "name": "bowstring",
+      "index": 2
+    }
+  ]
+}

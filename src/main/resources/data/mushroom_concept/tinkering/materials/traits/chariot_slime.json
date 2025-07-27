@@ -1,0 +1,32 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "mushroom_concept:wave_again"
+    },
+    {
+      "level": 1,
+      "name": "mushroom_concept:run_riot"
+    },
+    {
+      "level": 1,
+      "name": "tconstruct:overslime"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "mushroom_concept:wave_again_armor"
+      },
+      {
+        "level": 1,
+        "name": "mushroom_concept:run_riot_armor"
+      },
+      {
+        "level": 1,
+        "name": "tconstruct:overslime"
+      }
+    ]
+  }
+}

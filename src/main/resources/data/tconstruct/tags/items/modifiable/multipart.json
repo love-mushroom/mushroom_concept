@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "tconstruct:battlesign",
+    "tconstruct:war_pick",
+    "tconstruct:melting_pan",
+    "mushroom_concept:shroomitezhua",
+    "mushroom_concept:nine_ring_largesword",
+    "mushroom_concept:shuriken",
+    "mushroom_concept:mao_gun",
+    {
+      "id":"tinkers_thinking:repeating_crossbow",
+      "required": false
+    },
+    {
+      "id":"tinkers_thinking:mace",
+      "required": false
+    },
+    {
+      "id":"sakuratinker:blade_convergence",
+      "required": false
+    }
+  ]
+}

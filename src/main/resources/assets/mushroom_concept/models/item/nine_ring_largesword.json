@@ -1,0 +1,52 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default-tool",
+  "textures": {
+    "head1": "mushroom_concept:item/tool/nine_ring/1",
+    "head2": "mushroom_concept:item/tool/nine_ring/3",
+    "head3": "mushroom_concept:item/tool/nine_ring/4",
+    "binding": "mushroom_concept:item/tool/nine_ring/2"
+  },"display": {
+  "thirdperson_righthand": {
+    "rotation": [ 140, 270, 180 ],
+    "translation": [ 0, 14, 2 ],
+    "scale": [ 2, 2, 1 ]
+  },
+  "thirdperson_lefthand": {
+    "rotation": [ 140, 270, 180 ],
+    "translation": [ 0, 14, 2 ],
+    "scale": [ 2, 2, 1 ]
+  },
+  "firstperson_righthand": {
+    "rotation": [ 140, 270, 180 ],
+    "translation": [ 0, 14, 2 ],
+    "scale": [ 2, 2, 1 ]
+  },
+  "firstperson_lefthand": {
+    "rotation": [ 140, 270, 180 ],
+    "translation": [0, 14, 2 ],
+    "scale": [ 2, 2, 1 ]
+  }
+},
+  "modifier_roots": [
+    "mushroom_concept:item/tool/nine_ring/modifiers/"
+  ],
+  "parts": [
+    {
+      "name": "head1",
+      "index": 0
+    },
+    {
+      "name": "binding",
+      "index": 1
+    },
+    {
+      "name": "head2",
+      "index": 2
+    },
+    {
+      "name": "head3",
+      "index": 3
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "composite_material:etherite_totem"
+    }
+  ],
+  "level": 1,
+  "result": "mushroom_concept:etherite_all",
+  "slots": {
+    "abilities": 2
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable"
+  }
+}

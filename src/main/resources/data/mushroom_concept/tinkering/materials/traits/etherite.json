@@ -1,0 +1,24 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "mushroom_concept:etherite"
+    },
+    {
+      "level": 1,
+      "name": "mushroom_concept:etherite_all"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "mushroom_concept:etherite_armor"
+      },
+      {
+        "level": 1,
+        "name": "mushroom_concept:etherite_all"
+      }
+    ]
+  }
+}

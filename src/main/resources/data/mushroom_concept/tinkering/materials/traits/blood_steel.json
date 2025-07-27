@@ -1,0 +1,22 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "mushroom_concept:bloody_mary"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "mushroom_concept:wound_heal"
+      }
+    ],
+    "tinkers_ingenious:curio": [
+      {
+        "level": 1,
+        "name": "mushroom_concept:bloody_mary_c"
+      }
+    ]
+  }
+}

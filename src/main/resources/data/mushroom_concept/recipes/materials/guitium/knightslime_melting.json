@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "cataclysm:ignitium_ingot"
+  },
+  "result": {
+    "fluid": "mushroom_concept:molten_ignitium",
+    "amount": 90
+  },
+  "temperature": 1480,
+  "time": 20
+}

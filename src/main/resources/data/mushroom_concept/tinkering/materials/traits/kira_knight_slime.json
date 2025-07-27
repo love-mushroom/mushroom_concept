@@ -1,0 +1,32 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "mushroom_concept:sky_always"
+    },
+    {
+      "level": 1,
+      "name": "mushroom_concept:kira"
+    },
+    {
+      "level": 1,
+      "name": "mushroom_concept:knight_credo"
+    }
+  ],
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "mushroom_concept:sky_always"
+      },
+      {
+        "level": 1,
+        "name": "mushroom_concept:kira"
+      },
+      {
+        "level": 1,
+        "name": "mushroom_concept:knight_credo_armor"
+      }
+    ]
+  }
+}

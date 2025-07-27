@@ -1,0 +1,12 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "mushroom_concept:dark_war"
+    },
+    {
+      "level": 1,
+      "name": "mushroom_concept:black_shield"
+    }
+  ]
+}

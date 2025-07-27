@@ -1,0 +1,49 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "tconstruct:item/base/crossbow",
+  "textures": {
+    "grip_bottom":      "mushroom_concept:item/tool/mao_gun/grip_bottom_1",
+    "grip_top":         "mushroom_concept:item/tool/mao_gun/grip_top_1",
+    "limb":             "mushroom_concept:item/tool/mao_gun/limb_1",
+    "arrow":             "mushroom_concept:item/tool/mao_gun/arrow_1"  },
+  "parts": [
+    { "name": "grip_bottom", "index": 0 },
+    { "name": "grip_top",    "index": 1 },
+    { "name": "limb",        "index": 2  },
+    { "name": "arrow",        "index": 3  }
+  ],
+  "overrides": [
+    {
+      "predicate": { "tconstruct:charging": 1 },
+      "model": "mushroom_concept:item/mao_gun/pulling_1"
+    },
+    {
+      "predicate": { "tconstruct:charging": 1, "tconstruct:charge": 0.58 },
+      "model": "mushroom_concept:item/mao_gun/pulling_2"
+    },
+    {
+      "predicate": { "tconstruct:charging": 1, "tconstruct:charge": 1.0 },
+      "model": "mushroom_concept:item/mao_gun/pulling_3"
+    },
+    {
+      "predicate": { "tconstruct:ammo": 1 },
+      "model": "mushroom_concept:item/mao_gun/arrow"
+    },
+    {
+      "predicate": { "tconstruct:ammo": 1, "tconstruct:charging": 2 },
+      "model": "mushroom_concept:item/mao_gun/arrow_blocking"
+    },
+    {
+      "predicate": { "tconstruct:ammo": 2 },
+      "model": "mushroom_concept:item/mao_gun/firework"
+    },
+    {
+      "predicate": { "tconstruct:ammo": 2, "tconstruct:charging": 2 },
+      "model": "mushroom_concept:item/mao_gun/firework_blocking"
+    },
+    {
+      "predicate": { "tconstruct:broken": 1 },
+      "model": "mushroom_concept:item/mao_gun/broken"
+    }
+  ]
+}

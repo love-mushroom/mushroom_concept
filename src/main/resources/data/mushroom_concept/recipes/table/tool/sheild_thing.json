@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:table_casting_material",
+  "cast": {
+    "item": "mushroom_concept:shield_thing_cast"
+  },
+  "cast_consumed": false,
+  "item_cost": 3,
+  "result": "mushroom_concept:shield_thing"
+}

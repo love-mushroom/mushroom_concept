@@ -1,0 +1,39 @@
+{
+  "loader" : "tconstruct:tool",
+  "parent" : "forge:item/default-tool",
+  "textures" : {
+    "shuriken1" : "mushroom_concept:item/tool/shuriken/shuriken1",
+    "shuriken2" : "mushroom_concept:item/tool/shuriken/shuriken2",
+    "shuriken3" : "mushroom_concept:item/tool/shuriken/shuriken3",
+    "shuriken4" : "mushroom_concept:item/tool/shuriken/shuriken4"
+  },"display": {
+  "thirdperson_righthand": {
+    "rotation": [ 60, 90, 0 ],
+    "translation": [ 0, 2, 1 ],
+    "scale": [ 1.5, 1.5, 1 ]
+  },
+  "thirdperson_lefthand": {
+    "rotation": [ 60, 90, 0 ],
+    "translation": [ 0, 2, 1 ],
+    "scale": [ 1.5, 1.5, 1 ]
+  },
+  "firstperson_righthand": {
+    "rotation": [ 60, 90, 0 ],
+    "translation": [ 0, 2, 1 ],
+    "scale": [ 1.5, 1.5, 1 ]
+  },
+  "firstperson_lefthand": {
+    "rotation": [ 60, 90, 0 ],
+    "translation": [0, 2, 1 ],
+    "scale": [ 1.5, 1.5, 1 ]
+  }
+},
+  "modifier_roots" : [ "mushroom_concept:item/tool/shuriken/modifiers/" ],
+  "parts": [
+    { "name": "shuriken1",  "index": 0},
+    { "name": "shuriken2",  "index": 1 },
+    { "name": "shuriken3",  "index": 2 },
+    { "name": "shuriken4",  "index": 3}
+  ]
+}
+

@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "rats:gem_of_ratlantis"
+  },
+  "result": {
+    "fluid": "mushroom_concept:molten_gem_of_ratlantis",
+    "amount": 90
+  },
+  "temperature": 1480,
+  "time": 20
+}

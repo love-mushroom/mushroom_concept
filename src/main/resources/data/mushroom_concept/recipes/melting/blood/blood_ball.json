@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:casting_table",
+  "cooling_time": 3,
+  "fluid": {
+    "amount": 250,
+    "fluid": "mushroom_concept:molten_blood"
+  },
+  "result": "mushroom_concept:blood_ball"
+}

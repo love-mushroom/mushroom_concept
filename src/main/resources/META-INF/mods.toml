@@ -1,0 +1,46 @@
+modLoader = "javafml"
+loaderVersion = "${loader_version_range}"
+license = "GPL"
+
+[[mods]]
+modId = "mushroom_concept"
+version = "1.0.0"
+displayName = "Mushroom concept"
+authors = "mogumogumo"
+description = '''Mushroom concept.'''
+
+[[dependencies.mushroom_concept]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.mushroom_concept]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,1.21)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.mushroom_concept]]
+modId = "tconstruct"
+mandatory = true
+versionRange = "[3.5.0.17,)"
+ordering = "AFTER"
+side = "BOTH"
+
+
+[[dependencies.mushroom_concept]]
+modId = "tinkers_thinking"
+mandatory = false
+versionRange = "*"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.mushroom_concept]]
+modId = "tinkerscalibration"
+mandatory = false
+versionRange = "*"
+ordering = "AFTER"
+side = "BOTH"

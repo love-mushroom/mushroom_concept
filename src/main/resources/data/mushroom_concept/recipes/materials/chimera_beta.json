@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "mushroom_concept:chimera_beta"
+  },
+  "value": 1,
+  "needed": 1,
+  "material": "mushroom_concept:chimera_beta"
+}

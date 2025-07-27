@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/ingot"
+  },
+  "cast_consumed": true,
+  "fluid": {
+    "name": "mushroom_concept:molten_gem_of_ratlantis",
+    "amount": 90
+  },
+  "result": "rats:gem_of_ratlantis",
+  "cooling_time": 200
+}

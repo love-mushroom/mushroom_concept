@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "mushroom_concept:blood_steel"
+  },
+  "result": {
+    "fluid": "mushroom_concept:molten_blood_steel",
+    "amount": 90
+  },
+  "temperature": 1350,
+  "time": 20
+}
