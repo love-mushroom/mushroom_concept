@@ -7,16 +7,16 @@ package com.mogumogumo.mushroom_concept.library.ProjectileInterface;
 public interface InterfaceCriticalProjectile {
 
     /**
-     * 设置投掷物是否为暴击状态。
-     *
-     * @param critical 如果为 true，则设置投掷物为暴击状态；否则为非暴击状态。
-     */
-    void setCritical(boolean critical);
-
-    /**
      * 获取投掷物是否为暴击状态。
      *
      * @return 如果投掷物为暴击状态，则返回 true；否则返回 false。
      */
     boolean getCritical();
+
+    /**
+     * 设置投掷物是否为暴击状态。
+     *
+     * @param critical 如果为 true，则设置投掷物为暴击状态；否则为非暴击状态。
+     */
+    void setCritical(boolean critical);
 }

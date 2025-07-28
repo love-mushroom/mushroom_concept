@@ -11,10 +11,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class Mushnewitem extends Item{
+public class Mushnewitem extends Item {
     public Mushnewitem(Properties p_41383_) {
         super(p_41383_);
     }
+
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, List<Component> list, @NotNull TooltipFlag flag) {
 

@@ -24,9 +24,9 @@ public class ThrowableProjectileAttackUtil {
      * 处理默认的伤害逻辑。
      *
      * @param projectile 投掷物实体。
-     * @param attacker 攻击者实体。
-     * @param target 目标实体。
-     * @param damage 伤害值。
+     * @param attacker   攻击者实体。
+     * @param target     目标实体。
+     * @param damage     伤害值。
      * @return 如果目标受到伤害，则返回 true；否则返回 false。
      */
     public static boolean dealDeafaultDamage(Projectile projectile, LivingEntity attacker, Entity target, float damage) {
@@ -40,12 +40,12 @@ public class ThrowableProjectileAttackUtil {
     /**
      * 攻击实体的方法。
      *
-     * @param weapon 武器物品。
-     * @param projectile 投掷物实体。
-     * @param tool 工具堆栈视图。
+     * @param weapon         武器物品。
+     * @param projectile     投掷物实体。
+     * @param tool           工具堆栈视图。
      * @param attackerLiving 攻击者实体。
-     * @param targetEntity 目标实体。
-     * @param isExtraAttack 是否是额外攻击。
+     * @param targetEntity   目标实体。
+     * @param isExtraAttack  是否是额外攻击。
      * @return 如果攻击成功，则返回 true；否则返回 false。
      */
     public static boolean attackEntity(Item weapon, Projectile projectile, IToolStackView tool, LivingEntity attackerLiving, Entity targetEntity, boolean isExtraAttack) {
@@ -57,7 +57,7 @@ public class ThrowableProjectileAttackUtil {
         }
 
         // 将目标实体转换为 LivingEntity 类型，如果不是则设置为 null
-        LivingEntity targetLiving = targetEntity instanceof LivingEntity? (LivingEntity) targetEntity : null;
+        LivingEntity targetLiving = targetEntity instanceof LivingEntity ? (LivingEntity) targetEntity : null;
 
         // 如果攻击者为空，则返回 false
         if (attackerLiving == null) {
@@ -65,7 +65,7 @@ public class ThrowableProjectileAttackUtil {
         }
 
         // 创建一个 ToolAttackContext 对象，包含攻击的上下文信息
-        ToolAttackContext context = new ToolAttackContext(attackerLiving, attackerLiving instanceof Player? (Player) attackerLiving : null, InteractionHand.MAIN_HAND,
+        ToolAttackContext context = new ToolAttackContext(attackerLiving, attackerLiving instanceof Player ? (Player) attackerLiving : null, InteractionHand.MAIN_HAND,
                 targetEntity, targetLiving, wasCritical, 1, isExtraAttack);
 
         float damage;
@@ -82,7 +82,7 @@ public class ThrowableProjectileAttackUtil {
         float baseDamage = damage;
 
         // 遍历工具的修饰符列表，应用每个修饰符对伤害的影响
-        for (ModifierEntry entry: tool.getModifierList()) {
+        for (ModifierEntry entry : tool.getModifierList()) {
             damage = entry.getHook(ModifierHooks.MELEE_DAMAGE).getMeleeDamage(tool, entry, context, baseDamage, damage);
         }
 
@@ -97,7 +97,7 @@ public class ThrowableProjectileAttackUtil {
         float baseKnockback = knockback;
 
         // 遍历工具的修饰符列表，应用每个修饰符对击退的影响
-        for (ModifierEntry entry: tool.getModifierList()) {
+        for (ModifierEntry entry : tool.getModifierList()) {
             knockback = entry.getHook(ModifierHooks.MELEE_HIT).beforeMeleeHit(tool, entry, context, damage, baseKnockback, knockback);
         }
 
@@ -109,7 +109,7 @@ public class ThrowableProjectileAttackUtil {
 
         boolean didHit;
         // 如果是额外攻击或者武器不是可投掷 projectile 物品，则使用默认的伤害逻辑
-        if (isExtraAttack ||!(weapon instanceof InterfaceProjectileItem)) {
+        if (isExtraAttack || !(weapon instanceof InterfaceProjectileItem)) {
             didHit = dealDeafaultDamage(projectile, attackerLiving, targetEntity, damage);
         } else {
             // 否则，使用 InterfaceThrowableProjectileItem 接口的 dealDamageProjectile 方法处理伤害
@@ -120,7 +120,7 @@ public class ThrowableProjectileAttackUtil {
         if (didHit) {
             // 计算实际造成的伤害
             float damageDealt = damage;
-            if (targetEntity!= null && targetLiving != null) {
+            if (targetEntity != null && targetLiving != null) {
                 damageDealt = oldHealth - targetLiving.getHealth();
             }
 
@@ -132,7 +132,7 @@ public class ThrowableProjectileAttackUtil {
                 }
             }
 
-            for (ModifierEntry entry: tool.getModifierList()) {
+            for (ModifierEntry entry : tool.getModifierList()) {
                 entry.getHook(ModifierHooks.MELEE_HIT).afterMeleeHit(tool, entry, context, damageDealt);
             }
 
@@ -140,7 +140,7 @@ public class ThrowableProjectileAttackUtil {
 
         } else {
 
-            for (ModifierEntry entry: tool.getModifierList()) {
+            for (ModifierEntry entry : tool.getModifierList()) {
                 entry.getHook(ModifierHooks.MELEE_HIT).failedMeleeHit(tool, entry, context, damage);
             }
 

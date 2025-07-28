@@ -7,8 +7,8 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 public class Guohun extends BattleModifier {
     public float staticdamage(IToolStackView tool, int level, ToolAttackContext context, LivingEntity attacker, LivingEntity livingTarget, float baseDamage, float damage) {
-        if (livingTarget.getArmorValue()<=12){
-            return damage*1.5F;
+        if (livingTarget.getArmorValue() <= 12) {
+            return damage * 1.5F;
         }
         return damage;
     }

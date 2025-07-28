@@ -7,16 +7,16 @@ package com.mogumogumo.mushroom_concept.library.ProjectileInterface;
 public interface InterfaceKnockbackProjectile {
 
     /**
-     * 设置投掷物的击退值。
-     *
-     * @param knockback 要设置的击退值。
-     */
-    void setKnockback(float knockback);
-
-    /**
      * 获取投掷物的击退值。
      *
      * @return 投掷物的击退值。
      */
     float getKnockback();
+
+    /**
+     * 设置投掷物的击退值。
+     *
+     * @param knockback 要设置的击退值。
+     */
+    void setKnockback(float knockback);
 }

@@ -14,9 +14,9 @@ public abstract class FlyingMoveControlMixin extends MoveControl {
         super(pMob);
     }
 
-    @Inject(method = "tick",at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Mob;setNoGravity(Z)V",ordinal = 0), cancellable = true)
-    private void set(CallbackInfo ci){
-        if(this.mob.getPersistentData().getBoolean("fly_false")){
+    @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Mob;setNoGravity(Z)V", ordinal = 0), cancellable = true)
+    private void set(CallbackInfo ci) {
+        if (this.mob.getPersistentData().getBoolean("fly_false")) {
             this.mob.setNoGravity(false);
             this.mob.setYya(0.0F);
             this.mob.setZza(0.0F);

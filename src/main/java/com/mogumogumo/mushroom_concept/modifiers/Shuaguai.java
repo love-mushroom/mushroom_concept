@@ -1,9 +1,7 @@
 package com.mogumogumo.mushroom_concept.modifiers;
 
 import com.mogumogumo.mushroom_concept.extend.superclass.BattleModifier;
-import com.mogumogumo.mushroom_concept.utils.ModifierLevel;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -16,7 +14,6 @@ import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class Shuaguai extends BattleModifier {
@@ -25,6 +22,7 @@ public class Shuaguai extends BattleModifier {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.PROCESS_LOOT);
     }
+
     @Override
     public void processLoot(IToolStackView tool, ModifierEntry modifier, List<ItemStack> generatedLoot, LootContext context) {
         for (ItemStack stack : generatedLoot) {
@@ -37,13 +35,13 @@ public class Shuaguai extends BattleModifier {
         }
         Entity entity = context.getParamOrNull(LootContextParams.THIS_ENTITY);
         if (entity != null) {
-                Item eggItem = ForgeSpawnEggItem.fromEntityType(entity.getType());
+            Item eggItem = ForgeSpawnEggItem.fromEntityType(entity.getType());
 
-                if (eggItem == null) return;
+            if (eggItem == null) return;
 
-                ItemStack egg = new ItemStack(eggItem);
+            ItemStack egg = new ItemStack(eggItem);
 
-                generatedLoot.add(egg);
+            generatedLoot.add(egg);
         }
     }
 

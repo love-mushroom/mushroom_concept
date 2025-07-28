@@ -24,7 +24,7 @@ public class flying_knockback extends Modifier implements ProjectileLaunchModifi
     @Override
     public void onProjectileLaunch(IToolStackView tool, ModifierEntry modifier, LivingEntity shooter, Projectile projectile, @Nullable AbstractArrow arrow, ModDataNBT persistentData, boolean primary) {
         if (arrow != null) {
-            arrow.setKnockback(modifier.getLevel()*4);
+            arrow.setKnockback(modifier.getLevel() * 4);
         } else if (projectile instanceof FluidEffectProjectile spit) {
             spit.setKnockback(spit.getKnockback() + modifier.getLevel() * 4);
         }

@@ -4,7 +4,6 @@ import com.mogumogumo.mushroom_concept.entities.TinkerShurikenEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -37,23 +36,23 @@ public class RenderTinkerShuriken extends EntityRenderer<TinkerShurikenEntity> {
     /**
      * 渲染 TinkerShurikenEntity 实体的方法。
      *
-     * @param entity 要渲染的实体。
-     * @param entityYaw 实体的偏航角。
-     * @param partialTicks 部分渲染帧的时间。
+     * @param entity        要渲染的实体。
+     * @param entityYaw     实体的偏航角。
+     * @param partialTicks  部分渲染帧的时间。
      * @param matrixStackIn 用于变换的矩阵堆栈。
-     * @param buffIn 用于渲染的缓冲区源。
+     * @param buffIn        用于渲染的缓冲区源。
      * @param packedLightIn 打包的光照信息。
      */
     @Override
     public void render(TinkerShurikenEntity entity, float entityYaw, float partialTicks, PoseStack matrixStackIn, MultiBufferSource buffIn, int packedLightIn) {
         // 如果实体的 tick 计数大于等于 2 或者相机距离实体的平方大于 12.25，则进行渲染
-        matrixStackIn.scale(2,2,2);
-        matrixStackIn.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTicks, entity.yRotO, entity.getYRot())-90.0F));
-        matrixStackIn.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(partialTicks, entity.xRotO, entity.getXRot()) - 45.0F+entity.xRotO));
-        if (entity.tickCount >= 2 ||!(this.entityRenderDispatcher.camera.getEntity().distanceToSqr(entity) < 12.25D)) {
+        matrixStackIn.scale(2, 2, 2);
+        matrixStackIn.mulPose(Axis.YP.rotationDegrees(Mth.lerp(partialTicks, entity.yRotO, entity.getYRot()) - 90.0F));
+        matrixStackIn.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(partialTicks, entity.xRotO, entity.getXRot()) - 45.0F + entity.xRotO));
+        if (entity.tickCount >= 2 || !(this.entityRenderDispatcher.camera.getEntity().distanceToSqr(entity) < 12.25D)) {
             // 将矩阵堆栈压入
             matrixStackIn.pushPose();
-             // 平移矩阵堆栈
+            // 平移矩阵堆栈
             matrixStackIn.translate(-0.03125, -0.09375, 0);
             // 渲染静态物品
             this.itemRenderer.renderStatic(

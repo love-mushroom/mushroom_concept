@@ -1,7 +1,5 @@
 package com.mogumogumo.mushroom_concept.modifiers;
 
-import com.mogumogumo.mushroom_concept.extend.superclass.BattleModifier;
-import com.mogumogumo.mushroom_concept.extend.superclass.MoguModifier;
 import com.mogumogumo.mushroom_concept.extend.superclass.MushModifier;
 import com.mogumogumo.mushroom_concept.utils.ModifierLevel;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,17 +20,19 @@ public class EtheriteAll extends MushModifier {
     @Override
     protected void registerHooks(ModuleHookMap.Builder builder) {
         super.registerHooks(builder);
-        builder.addHook(this, ModifierHooks.TOOL_DAMAGE,ModifierHooks.INVENTORY_TICK);
+        builder.addHook(this, ModifierHooks.TOOL_DAMAGE, ModifierHooks.INVENTORY_TICK);
     }
+
     @Override
     public void modifierOnInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
-        if (world.getGameTime() % 10 == 0&&holder instanceof Player player) {
+        if (world.getGameTime() % 10 == 0 && holder instanceof Player player) {
             ToolDamageUtil.repair(tool, 1);
-            if (ModifierLevel.getTotalArmorModifierlevel(player,this.getId()) > 0) {
+            if (ModifierLevel.getTotalArmorModifierlevel(player, this.getId()) > 0) {
                 player.heal(01f);
             }
         }
     }
+
     @Override
     public int onDamageTool(IToolStackView iToolStackView, ModifierEntry modifierEntry, int i, @Nullable LivingEntity livingEntity) {
         return 0;

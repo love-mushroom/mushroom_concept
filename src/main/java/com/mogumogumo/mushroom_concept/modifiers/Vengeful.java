@@ -11,11 +11,11 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 public class Vengeful extends ArmorModifier {
     public float TrueDamageamount(IToolStackView armor, int level, EquipmentContext context, EquipmentSlot slot, DamageSource source, float amount, boolean isDirectDamage, LivingEntity entity, LivingEntity enemy) {
-        if (enemy != null){
-            enemy.addEffect(new MobEffectInstance(MobEffects.POISON,20 * level, level-1));
-            enemy.addEffect(new MobEffectInstance(MobEffects.WEAKNESS,20 * level, level-1));
-            enemy.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN,20 * level, level-1));
-            enemy.addEffect(new MobEffectInstance(MobEffects.WITHER,20 * level, level-1));
+        if (enemy != null) {
+            enemy.addEffect(new MobEffectInstance(MobEffects.POISON, 20 * level, level - 1));
+            enemy.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20 * level, level - 1));
+            enemy.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20 * level, level - 1));
+            enemy.addEffect(new MobEffectInstance(MobEffects.WITHER, 20 * level, level - 1));
         }
         return amount;
     }

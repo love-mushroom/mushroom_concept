@@ -33,10 +33,11 @@ public class fire extends BattleModifier {
         }
         return false;
     }
+
     public float staticdamage(IToolStackView tool, int level, ToolAttackContext context, LivingEntity attacker, LivingEntity livingTarget, float baseDamage, float damage) {
         if (attacker instanceof Player player) {
-            if (livingTarget.getArmorValue()<1){
-                player.heal(player.getMaxHealth()*0.07f);
+            if (livingTarget.getArmorValue() < 1) {
+                player.heal(player.getMaxHealth() * 0.07f);
                 return damage;
             }
         }

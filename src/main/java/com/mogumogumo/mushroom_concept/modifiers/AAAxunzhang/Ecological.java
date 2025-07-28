@@ -11,11 +11,12 @@ public class Ecological extends SimpleModifier implements TinkersCurioModifierHo
     protected void addHooks(ModuleHookMap.Builder builder) {
         builder.addHook(this, TIHooks.TINKERS_CURIO);
     }
+
     public void onCurioTick(CurioStackView curio, int level, LivingEntity entity) {
-        if (entity.tickCount %20 == 0){
-            int a =RANDOM.nextInt(3);
-            if (a==1) {
-                entity.heal(0.5f );
+        if (entity.tickCount % 20 == 0) {
+            int a = RANDOM.nextInt(3);
+            if (a == 1) {
+                entity.heal(0.5f);
             }
         }
     }

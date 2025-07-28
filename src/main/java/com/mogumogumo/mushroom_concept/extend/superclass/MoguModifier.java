@@ -65,10 +65,25 @@ import java.util.function.BiConsumer;
 import java.util.function.Predicate;
 
 public abstract class MoguModifier extends Modifier implements MeleeDamageModifierHook, MeleeHitModifierHook, DamageDealtModifierHook,
-        BowAmmoModifierHook, ProjectileHitModifierHook, ProjectileLaunchModifierHook,KeybindInteractModifierHook, ProcessLootModifierHook,
+        BowAmmoModifierHook, ProjectileHitModifierHook, ProjectileLaunchModifierHook, KeybindInteractModifierHook, ProcessLootModifierHook,
         EquipmentChangeModifierHook, InventoryTickModifierHook, OnAttackedModifierHook, TooltipModifierHook, AttributesModifierHook,
         ModifyDamageModifierHook, ModifierRemovalHook, BlockBreakModifierHook, EntityInteractionModifierHook, ToolStatsModifierHook,
         ToolDamageModifierHook {
+
+    public MoguModifier() {
+        MinecraftForge.EVENT_BUS.addListener(this::LivingHurtEvent);
+        MinecraftForge.EVENT_BUS.addListener(this::LivingAttackEvent);
+        MinecraftForge.EVENT_BUS.addListener(this::LivingDamageEvent);
+    }
+
+    public static int getArmorModifierlevel(LivingEntity entity, ModifierId modifierId) {
+        return ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.MAINHAND), modifierId)
+                + ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.OFFHAND), modifierId)
+                + ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.HEAD), modifierId)
+                + ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.CHEST), modifierId)
+                + ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.LEGS), modifierId)
+                + ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.FEET), modifierId);
+    }
 
     @Override
     protected void registerHooks(ModuleHookMap.Builder builder) {
@@ -79,12 +94,6 @@ public abstract class MoguModifier extends Modifier implements MeleeDamageModifi
         builder.addHook(this, ModifierHooks.TOOLTIP, ModifierHooks.REMOVE, ModifierHooks.MODIFY_DAMAGE);
         builder.addHook(this, ModifierHooks.BLOCK_BREAK, ModifierHooks.ENTITY_INTERACT, ModifierHooks.TOOL_STATS);
         builder.addHook(this, ModifierHooks.ARMOR_INTERACT, ModifierHooks.ATTRIBUTES, ModifierHooks.PROCESS_LOOT);
-    }
-
-    public MoguModifier() {
-        MinecraftForge.EVENT_BUS.addListener(this::LivingHurtEvent);
-        MinecraftForge.EVENT_BUS.addListener(this::LivingAttackEvent);
-        MinecraftForge.EVENT_BUS.addListener(this::LivingDamageEvent);
     }
 
     @Override
@@ -251,14 +260,5 @@ public abstract class MoguModifier extends Modifier implements MeleeDamageModifi
     @Override
     public boolean startInteract(IToolStackView tool, ModifierEntry modifier, Player player, EquipmentSlot slot, TooltipKey keyModifier) {
         return KeybindInteractModifierHook.super.startInteract(tool, modifier, player, slot, keyModifier);
-    }
-
-    public static int getArmorModifierlevel(LivingEntity entity, ModifierId modifierId) {
-        return ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.MAINHAND), modifierId)
-                + ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.OFFHAND), modifierId)
-                + ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.HEAD), modifierId)
-                + ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.CHEST), modifierId)
-                + ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.LEGS), modifierId)
-                + ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.FEET), modifierId);
     }
 }

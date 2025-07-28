@@ -19,8 +19,8 @@ public interface InterfaceProjectileItem {
     /**
      * 创建一个 projectile 实体。
      *
-     * @param tool 手里剑物品堆栈。
-     * @param world 世界对象。
+     * @param tool    手里剑物品堆栈。
+     * @param world   世界对象。
      * @param shooter 射击者实体。
      * @return 新创建的 projectile 实体。
      */
@@ -30,9 +30,9 @@ public interface InterfaceProjectileItem {
      * 为 projectile 实体提供额外的信息。
      *
      * @param projectile 要提供信息的 projectile 实体。
-     * @param tool 手里剑物品堆栈。
-     * @param world 世界对象。
-     * @param shooter 射击者实体。
+     * @param tool       手里剑物品堆栈。
+     * @param world      世界对象。
+     * @param shooter    射击者实体。
      */
     void supplyInfoToProjectile(Projectile projectile, ItemStack tool, Level world, LivingEntity shooter);
 
@@ -40,9 +40,9 @@ public interface InterfaceProjectileItem {
      * 处理 projectile 造成的伤害。
      *
      * @param projectile 造成伤害的 projectile 实体。
-     * @param stack 与 projectile 相关的工具堆栈视图。
-     * @param context 工具攻击上下文。
-     * @param damage 要造成的伤害量。
+     * @param stack      与 projectile 相关的工具堆栈视图。
+     * @param context    工具攻击上下文。
+     * @param damage     要造成的伤害量。
      * @return 如果伤害处理成功，则返回 true；否则返回 false。
      */
     default boolean dealDamageProjectile(Projectile projectile, IToolStackView stack, ToolAttackContext context, float damage) {

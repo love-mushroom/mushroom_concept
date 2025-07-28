@@ -37,6 +37,7 @@ public class Darkwar extends ArmorModifier {
             }
         }
     }
+
     public float TrueDamageamount(IToolStackView armor, int level, EquipmentContext context, EquipmentSlot slot, DamageSource source, float amount, boolean isDirectDamage, LivingEntity entity, LivingEntity enemy) {
         return Math.min(amount, entity.getMaxHealth() / 3);
     }

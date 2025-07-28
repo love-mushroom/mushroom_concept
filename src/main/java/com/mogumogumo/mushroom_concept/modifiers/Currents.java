@@ -20,13 +20,13 @@ public class Currents extends BattleModifier {
     public void processLoot(IToolStackView tool, ModifierEntry modifier, List<ItemStack> generatedLoot, LootContext context) {
         int level = modifier.getLevel();
         int ran = RANDOM.nextInt(99);
-        if (ran == 0 ) {
+        if (ran == 0) {
             generatedLoot.add(new ItemStack(Items.HEART_OF_THE_SEA));
-        } else if (ran == 10 ) {
+        } else if (ran == 10) {
             generatedLoot.add(new ItemStack(Items.PRISMARINE_SHARD));
-        } else if (ran <= 20 ) {
+        } else if (ran <= 20) {
             generatedLoot.add(new ItemStack(Items.NAUTILUS_SHELL));
-        } else if (ran <= 40 ) {
+        } else if (ran <= 40) {
             generatedLoot.add(new ItemStack(Items.SCUTE));
         } else if (ran <= 60) {
             generatedLoot.add(new ItemStack(Items.TURTLE_EGG));

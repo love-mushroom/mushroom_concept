@@ -73,7 +73,8 @@ public class BattleModifier extends Modifier implements AboutAttack, AboutBuilde
     public boolean hidden() {
         return false;
     }
-    public void addAttributes(ToolAttackContext context, IToolStackView tool, ModifierEntry modifier, EquipmentSlot slot, BiConsumer<Attribute, AttributeModifier> consumer){
+
+    public void addAttributes(ToolAttackContext context, IToolStackView tool, ModifierEntry modifier, EquipmentSlot slot, BiConsumer<Attribute, AttributeModifier> consumer) {
     }
 
 
@@ -110,7 +111,7 @@ public class BattleModifier extends Modifier implements AboutAttack, AboutBuilde
 
 
     public void onProjectileLaunch(IToolStackView tool, ModifierEntry modifiers, LivingEntity livingEntity, Projectile projectile, @Nullable AbstractArrow abstractArrow, boolean primary) {
-        this.modifierOnProjectileLaunch(tool,modifiers,livingEntity,projectile,abstractArrow);
+        this.modifierOnProjectileLaunch(tool, modifiers, livingEntity, projectile, abstractArrow);
     }
 
     private void modifierOnProjectileLaunch(IToolStackView tool, ModifierEntry modifiers, LivingEntity livingEntity, Projectile projectile, @Nullable AbstractArrow abstractArrow) {

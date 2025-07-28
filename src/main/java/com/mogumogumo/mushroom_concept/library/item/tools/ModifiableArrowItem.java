@@ -3,7 +3,6 @@ package com.mogumogumo.mushroom_concept.library.item.tools;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
@@ -67,6 +66,66 @@ public class ModifiableArrowItem extends ArrowItem implements IModifiableDisplay
         this.toolDefinition = toolDefinition;
     }
 
+    protected static boolean shouldInteract(@Nullable LivingEntity player, ToolStack toolStack, InteractionHand hand) {
+        IModDataView volatileData = toolStack.getVolatileData();
+        if (volatileData.getBoolean(NO_INTERACTION)) {
+            return false;
+        }
+        // off hand always can interact
+        if (hand == InteractionHand.OFF_HAND) {
+            return true;
+        }
+        // main hand may wish to defer to the offhand if it has a tool
+        return player == null || !volatileData.getBoolean(DEFER_OFFHAND) || player.getOffhandItem().isEmpty();
+    }
+
+    public static boolean shouldCauseReequip(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+        if (oldStack == newStack) {
+            return false;
+        }
+        // basic changes
+        if (slotChanged || oldStack.getItem() != newStack.getItem()) {
+            return true;
+        }
+
+        // if the tool props changed,
+        ToolStack oldTool = ToolStack.from(oldStack);
+        ToolStack newTool = ToolStack.from(newStack);
+
+        // check if modifiers or materials changed
+        if (!oldTool.getMaterials().equals(newTool.getMaterials())) {
+            return true;
+        }
+        if (!oldTool.getModifierList().equals(newTool.getModifierList())) {
+            return true;
+        }
+
+        // if the attributes changed, reequip
+        Multimap<Attribute, AttributeModifier> attributesNew = newStack.getAttributeModifiers(EquipmentSlot.MAINHAND);
+        Multimap<Attribute, AttributeModifier> attributesOld = oldStack.getAttributeModifiers(EquipmentSlot.MAINHAND);
+        if (attributesNew.size() != attributesOld.size()) {
+            return true;
+        }
+        for (Attribute attribute : attributesOld.keySet()) {
+            if (!attributesNew.containsKey(attribute)) {
+                return true;
+            }
+            Iterator<AttributeModifier> iter1 = attributesNew.get(attribute).iterator();
+            Iterator<AttributeModifier> iter2 = attributesOld.get(attribute).iterator();
+            while (iter1.hasNext() && iter2.hasNext()) {
+                if (!iter1.next().equals(iter2.next())) {
+                    return true;
+                }
+            }
+        }
+        // no changes, no reequip
+        return false;
+    }
+
+    public static BlockHitResult blockRayTrace(Level worldIn, Player player, ClipContext.Fluid fluidMode) {
+        return Item.getPlayerPOVHitResult(worldIn, player, fluidMode);
+    }
+
     @Override
     public boolean isNotReplaceableByPickAction(ItemStack stack, Player player, int inventorySlot) {
         return true;
@@ -76,8 +135,6 @@ public class ModifiableArrowItem extends ArrowItem implements IModifiableDisplay
     public int getMaxStackSize(ItemStack stack) {
         return 1;
     }
-
-
 
     @Override
     public boolean isEnchantable(ItemStack stack) {
@@ -100,11 +157,9 @@ public class ModifiableArrowItem extends ArrowItem implements IModifiableDisplay
     }
 
     @Override
-    public Map<Enchantment,Integer> getAllEnchantments(ItemStack stack) {
+    public Map<Enchantment, Integer> getAllEnchantments(ItemStack stack) {
         return EnchantmentModifierHook.getAllEnchantments(stack);
     }
-
-
 
     @Nullable
     @Override
@@ -122,8 +177,6 @@ public class ModifiableArrowItem extends ArrowItem implements IModifiableDisplay
         ToolStack.ensureInitialized(stack, getToolDefinition());
     }
 
-
-
     @Override
     public boolean isFoil(ItemStack stack) {
         // we use enchantments to handle some modifiers, so don't glow from them
@@ -137,9 +190,6 @@ public class ModifiableArrowItem extends ArrowItem implements IModifiableDisplay
         return Rarity.values()[Mth.clamp(rarity, 0, 3)];
     }
 
-
-
-
     @Override
     public boolean hasCustomEntity(ItemStack stack) {
         return IndestructibleItemEntity.hasCustomEntity(stack);
@@ -149,8 +199,6 @@ public class ModifiableArrowItem extends ArrowItem implements IModifiableDisplay
     public Entity createEntity(Level world, Entity original, ItemStack stack) {
         return IndestructibleItemEntity.createFrom(world, original, stack);
     }
-
-
 
     @Override
     public boolean isRepairable(ItemStack stack) {
@@ -200,8 +248,6 @@ public class ModifiableArrowItem extends ArrowItem implements IModifiableDisplay
         return 0;
     }
 
-
-
     @Override
     public boolean isBarVisible(ItemStack stack) {
         return stack.getCount() == 1 && DurabilityDisplayModifierHook.showDurabilityBar(stack);
@@ -216,8 +262,6 @@ public class ModifiableArrowItem extends ArrowItem implements IModifiableDisplay
     public int getBarWidth(ItemStack pStack) {
         return DurabilityDisplayModifierHook.getDurabilityWidth(pStack);
     }
-
-
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, Player player, Entity target) {
@@ -243,8 +287,6 @@ public class ModifiableArrowItem extends ArrowItem implements IModifiableDisplay
         return canPerformAction(stack, TinkerToolActions.SHIELD_DISABLE);
     }
 
-
-
     @Override
     public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
         return IsEffectiveToolHook.isEffective(ToolStack.from(stack), state);
@@ -265,28 +307,10 @@ public class ModifiableArrowItem extends ArrowItem implements IModifiableDisplay
         return stack.getCount() > 1 || ToolHarvestLogic.handleBlockBreak(stack, pos, player);
     }
 
-
-
     @Override
     public void inventoryTick(ItemStack stack, Level worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
         InventoryTickModifierHook.heldInventoryTick(stack, worldIn, entityIn, itemSlot, isSelected);
     }
-
-
-    protected static boolean shouldInteract(@Nullable LivingEntity player, ToolStack toolStack, InteractionHand hand) {
-        IModDataView volatileData = toolStack.getVolatileData();
-        if (volatileData.getBoolean(NO_INTERACTION)) {
-            return false;
-        }
-        // off hand always can interact
-        if (hand == InteractionHand.OFF_HAND) {
-            return true;
-        }
-        // main hand may wish to defer to the offhand if it has a tool
-        return player == null || !volatileData.getBoolean(DEFER_OFFHAND) || player.getOffhandItem().isEmpty();
-    }
-
-
 
     @Override
     public InteractionResult onItemUseFirst(ItemStack stack, UseOnContext context) {
@@ -420,8 +444,6 @@ public class ModifiableArrowItem extends ArrowItem implements IModifiableDisplay
         return stack.getCount() == 1 && ModifierUtil.canPerformAction(ToolStack.from(stack), toolAction);
     }
 
-
-
     @Override
     public Component getName(ItemStack stack) {
         return TooltipUtil.getDisplayName(stack, getToolDefinition());
@@ -445,51 +467,6 @@ public class ModifiableArrowItem extends ArrowItem implements IModifiableDisplay
         return toolForRendering;
     }
 
-
-
-    public static boolean shouldCauseReequip(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
-        if (oldStack == newStack) {
-            return false;
-        }
-        // basic changes
-        if (slotChanged || oldStack.getItem() != newStack.getItem()) {
-            return true;
-        }
-
-        // if the tool props changed,
-        ToolStack oldTool = ToolStack.from(oldStack);
-        ToolStack newTool = ToolStack.from(newStack);
-
-        // check if modifiers or materials changed
-        if (!oldTool.getMaterials().equals(newTool.getMaterials())) {
-            return true;
-        }
-        if (!oldTool.getModifierList().equals(newTool.getModifierList())) {
-            return true;
-        }
-
-        // if the attributes changed, reequip
-        Multimap<Attribute,AttributeModifier> attributesNew = newStack.getAttributeModifiers(EquipmentSlot.MAINHAND);
-        Multimap<Attribute, AttributeModifier> attributesOld = oldStack.getAttributeModifiers(EquipmentSlot.MAINHAND);
-        if (attributesNew.size() != attributesOld.size()) {
-            return true;
-        }
-        for (Attribute attribute : attributesOld.keySet()) {
-            if (!attributesNew.containsKey(attribute)) {
-                return true;
-            }
-            Iterator<AttributeModifier> iter1 = attributesNew.get(attribute).iterator();
-            Iterator<AttributeModifier> iter2 = attributesOld.get(attribute).iterator();
-            while (iter1.hasNext() && iter2.hasNext()) {
-                if (!iter1.next().equals(iter2.next())) {
-                    return true;
-                }
-            }
-        }
-        // no changes, no reequip
-        return false;
-    }
-
     @Override
     public boolean shouldCauseBlockBreakReset(ItemStack oldStack, ItemStack newStack) {
         return shouldCauseReequipAnimation(oldStack, newStack, false);
@@ -498,10 +475,6 @@ public class ModifiableArrowItem extends ArrowItem implements IModifiableDisplay
     @Override
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
         return shouldCauseReequip(oldStack, newStack, slotChanged);
-    }
-
-    public static BlockHitResult blockRayTrace(Level worldIn, Player player, ClipContext.Fluid fluidMode) {
-        return Item.getPlayerPOVHitResult(worldIn, player, fluidMode);
     }
 
     @Override

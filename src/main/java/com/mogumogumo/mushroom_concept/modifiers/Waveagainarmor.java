@@ -18,14 +18,15 @@ public class Waveagainarmor extends ArmorModifier {
     public Component getDisplayName(int level) {
         return super.getDisplayName();
     }
+
     @Override
     public float TrueDamageamount(IToolStackView armor, int level, EquipmentContext context, EquipmentSlot slot, DamageSource source, float amount, boolean isDirectDamage, LivingEntity entity, LivingEntity enemy) {
-        if (enemy  != null&& entity instanceof Player player) {
-            if (amount>player.getMaxHealth()*0.3f){
-                player.heal(player.getMaxHealth()*0.05f+1);
+        if (enemy != null && entity instanceof Player player) {
+            if (amount > player.getMaxHealth() * 0.3f) {
+                player.heal(player.getMaxHealth() * 0.05f + 1);
                 OverslimeModifier overslime = TinkerModifiers.overslime.get();
                 ModifierEntry entry = armor.getModifier(TinkerModifiers.overslime.getId());
-                float a = (float) (overslime.getShieldCapacity(armor, entry) * 0.05f+5);
+                float a = (float) (overslime.getShieldCapacity(armor, entry) * 0.05f + 5);
                 overslime.addOverslime(armor, entry, (int) a);
                 return amount;
             }

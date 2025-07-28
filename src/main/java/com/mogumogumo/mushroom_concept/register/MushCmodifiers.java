@@ -6,7 +6,7 @@ import com.mogumogumo.mushroom_concept.modifiers.Tool.MaoGun;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
-import static com.mogumogumo.mushroom_concept.mushroom_concept.MODID;
+import static com.mogumogumo.mushroom_concept.Mushroom_Concept.MODID;
 
 public class MushCmodifiers {
     public static ModifierDeferredRegister MODIFIERS = ModifierDeferredRegister.create(MODID);
@@ -64,7 +64,8 @@ public class MushCmodifiers {
     public static final StaticModifier<Runriotarmor> runriotarmorStaticModifier = MODIFIERS.register("run_riot_armor", Runriotarmor::new);
     public static final StaticModifier<Waveagain> waveagainStaticModifier = MODIFIERS.register("wave_again", Waveagain::new);
     public static final StaticModifier<Waveagainarmor> waveagainarmorStaticModifier = MODIFIERS.register("wave_again_armor", Waveagainarmor::new);
-    public static final StaticModifier<Endspeed>endspeedStaticModifier  = MODIFIERS.register("endspeed", Endspeed::new);
+    public static final StaticModifier<Endspeed> endspeedStaticModifier = MODIFIERS.register("endspeed", Endspeed::new);
+    public static final StaticModifier<ZeroHand> zeroHandStaticModifier = MODIFIERS.register("zero_hand", ZeroHand::new);
     public static final StaticModifier<Principleofsufficientreason> principleofsufficientreasonStaticModifier = MODIFIERS.register("principle_of_sufficient_reason", Principleofsufficientreason::new);
     public static final StaticModifier<ancient_tinker> ancientTinkerStaticModifier = MODIFIERS.register("ancient_tinker", ancient_tinker::new);
 }

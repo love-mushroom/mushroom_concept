@@ -5,9 +5,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.tools.nbt.IToolContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
-import slimeknights.tconstruct.library.tools.stat.ModifierStatsBuilder;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.modifiers.slotless.OverslimeModifier;
 
@@ -18,7 +16,7 @@ public class kira extends BattleModifier {
         if (!world.isClientSide && holder.tickCount % 20 == 0 && holder.getUseItem() != stack) {
             OverslimeModifier overslime = TinkerModifiers.overslime.get();
             ModifierEntry entry = tool.getModifier(TinkerModifiers.overslime.getId());
-            float b = tool.getStats().getInt(OverslimeModifier.OVERSLIME_STAT)*0.03f;
+            float b = tool.getStats().getInt(OverslimeModifier.OVERSLIME_STAT) * 0.03f;
             overslime.addOverslime(tool, entry, (int) b);
         }
     }

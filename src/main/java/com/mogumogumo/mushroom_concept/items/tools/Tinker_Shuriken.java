@@ -1,9 +1,9 @@
 package com.mogumogumo.mushroom_concept.items.tools;
 
-import com.mogumogumo.mushroom_concept.mushroom_concept;
+import com.mogumogumo.mushroom_concept.MushCutil;
+import com.mogumogumo.mushroom_concept.Mushroom_Concept;
 import com.mogumogumo.mushroom_concept.entities.TinkerShurikenEntity;
 import com.mogumogumo.mushroom_concept.library.InterfaceProjectileItem;
-import com.mogumogumo.mushroom_concept.MushCutil;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -30,21 +30,18 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.BiFunction;
 
-@Mod.EventBusSubscriber(modid = mushroom_concept.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber(modid = Mushroom_Concept.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class Tinker_Shuriken extends ModifiableSwordItem implements InterfaceProjectileItem {
-    
-    private StatsNBT stats;
 
     public static final ToolDefinition SHURIKEN = ToolDefinition
             .create(MushCutil.SHURIKEN);
-
     public final BiFunction<Level, Player, TinkerShurikenEntity> entity;
+    private StatsNBT stats;
 
     public Tinker_Shuriken(BiFunction<Level, Player, TinkerShurikenEntity> entity) {
         super(new Item.Properties(), SHURIKEN);
         this.entity = entity;
     }
-
 
 
     @Override
@@ -60,10 +57,10 @@ public class Tinker_Shuriken extends ModifiableSwordItem implements InterfacePro
         // 获取攻击速度
         double attackSpeed = (double) tool.getStats().get(ToolStats.ATTACK_SPEED);
         // 计算冷却时间
-        double CoolDownTime = 20 - attackSpeed * 2 ;
+        double CoolDownTime = 20 - attackSpeed * 2;
 
         // 如果不在客户端且工具未损坏
-        if (!world.isClientSide() &&!tool.isBroken()) {
+        if (!world.isClientSide() && !tool.isBroken()) {
             // 为工具添加冷却时间
             player.getCooldowns().addCooldown(stack.getItem(), (int) CoolDownTime);
             // 减少工具造成 1 点耐久

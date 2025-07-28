@@ -1,11 +1,10 @@
 package com.mogumogumo.mushroom_concept.register;
 
-import com.mogumogumo.mushroom_concept.modifiers.Tool.Guohun;
+import com.mogumogumo.mushroom_concept.modifiers.Ender.Sikula;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
-import com.mogumogumo.mushroom_concept.modifiers.Ender.*;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
-import static com.mogumogumo.mushroom_concept.mushroom_concept.MODID;
+import static com.mogumogumo.mushroom_concept.Mushroom_Concept.MODID;
 
 public class MushEnderModifiers {
 

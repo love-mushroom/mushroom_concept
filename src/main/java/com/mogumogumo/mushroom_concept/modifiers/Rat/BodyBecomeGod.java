@@ -22,17 +22,17 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class BodyBecomeGod extends BattleModifier implements ModifyDamageModifierHook , ValidateModifierHook {
+public class BodyBecomeGod extends BattleModifier implements ModifyDamageModifierHook, ValidateModifierHook {
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
-        hookBuilder.addHook(this, ModifierHooks.MODIFY_DAMAGE,ModifierHooks.VALIDATE);
+        hookBuilder.addHook(this, ModifierHooks.MODIFY_DAMAGE, ModifierHooks.VALIDATE);
     }
 
     @Override
     public float modifyDamageTaken(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, EquipmentContext context, @NotNull EquipmentSlot slotType, @NotNull DamageSource source, float amount, boolean isDirectDamage) {
         LivingEntity entity = context.getEntity();
         if (entity instanceof TamedRat tamedRat) {
-            float a = (float) (0.05f);
+            float a = 0.05f;
             return amount * a;
         }
         return amount;
@@ -61,6 +61,7 @@ public class BodyBecomeGod extends BattleModifier implements ModifyDamageModifie
         }
         return requirementsError(modifierEntry);
     }
+
     public @Nullable Component requirementsError(ModifierEntry entry) {
         return Component.translatable("recipes.modifier.mushroom_concept.rat_god");
     }

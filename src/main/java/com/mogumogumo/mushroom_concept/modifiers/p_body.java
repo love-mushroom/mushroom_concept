@@ -9,7 +9,7 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 public class p_body extends BattleModifier {
     public float staticdamage(IToolStackView tool, int level, ToolAttackContext context, LivingEntity attacker, LivingEntity livingTarget, float baseDamage, float damage) {
         if (attacker instanceof Player player) {
-            player.heal(-player.getMaxHealth()/4);
+            player.heal(-player.getMaxHealth() / 4);
             return damage + livingTarget.getHealth() * 0.2f;
         }
         return damage;

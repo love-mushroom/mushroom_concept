@@ -6,12 +6,10 @@ import net.minecraft.world.entity.player.Player;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-import java.util.Objects;
-
 public class Etherite extends BattleModifier {
     public float staticdamage(IToolStackView tool, int level, ToolAttackContext context, LivingEntity attacker, LivingEntity livingTarget, float baseDamage, float damage) {
         if (attacker instanceof Player player) {
-            return damage +(livingTarget.getMaxHealth()-livingTarget.getHealth())*0.25f;
+            return damage + (livingTarget.getMaxHealth() - livingTarget.getHealth()) * 0.25f;
         }
         return damage;
     }

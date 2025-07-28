@@ -1,32 +1,21 @@
 package com.mogumogumo.mushroom_concept.modifiers;
 
 import com.mogumogumo.mushroom_concept.extend.superclass.ArmorModifier;
-import com.mogumogumo.mushroom_concept.extend.superclass.MoguModifier;
 import com.mogumogumo.mushroom_concept.utils.ModifierLevel;
 import com.mogumogumo.mushroom_concept.utils.MushUtils;
-import com.mogumogumo.mushroom_concept.utils.slotUtil;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.event.entity.living.LivingChangeTargetEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.eventbus.api.Event;
-import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.module.ModuleHookMap;
-import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
-import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import java.util.UUID;
 import java.util.function.BiConsumer;
@@ -37,29 +26,32 @@ public class EtheriteArmor extends ArmorModifier {
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         hookBuilder.addHook(this, ModifierHooks.INVENTORY_TICK, ModifierHooks.ATTRIBUTES, ModifierHooks.REMOVE);
     }
+
     public void MobEffectEvent(MobEffectEvent.Applicable event) {
         if (event.getEntity() != null && event.getEntity() instanceof LivingEntity) {
-            if (ModifierLevel.EquipHasModifierlevel(event.getEntity(), this.getId())){
-                if (!event.getEffectInstance().getEffect().isBeneficial()){
+            if (ModifierLevel.EquipHasModifierlevel(event.getEntity(), this.getId())) {
+                if (!event.getEffectInstance().getEffect().isBeneficial()) {
                     event.setResult(Event.Result.DENY);
-                }}
+                }
+            }
         }
     }
 
     public void LivingAttackEvent(LivingAttackEvent event) {
         if (ModifierLevel.getTotalArmorModifierlevel(event.getEntity(), this.getId()) > 0) {
-                if (event.getEntity() instanceof Player player) {
-                    if (event.getSource().getEntity() == null ) {
-                        event.getEntity().invulnerableTime = 80;
-                        event.setCanceled(true);
-                    }
+            if (event.getEntity() instanceof Player player) {
+                if (event.getSource().getEntity() == null) {
+                    event.getEntity().invulnerableTime = 80;
+                    event.setCanceled(true);
                 }
+            }
         }
     }
+
     @Override
     public void addAttributes(IToolStackView tool, ModifierEntry modifier, EquipmentSlot slot, BiConsumer<Attribute, AttributeModifier> consumer) {
-        if (MushUtils.isInArmorSlots(slot)){
-            switch (slot){
+        if (MushUtils.isInArmorSlots(slot)) {
+            switch (slot) {
                 case HEAD -> {
                     consumer.accept(Attributes.MAX_HEALTH, new AttributeModifier(UUID.fromString("f85578f9-5954-40dd-a683-5143820babe8"), Attributes.MAX_HEALTH.getDescriptionId(), 14, AttributeModifier.Operation.ADDITION));
                 }
@@ -74,9 +66,9 @@ public class EtheriteArmor extends ArmorModifier {
                 }
             }
         }
-        if (MushUtils.isShieldInHandSlots(tool, slot)){
-            switch (slot){
-                case MAINHAND,OFFHAND -> {
+        if (MushUtils.isShieldInHandSlots(tool, slot)) {
+            switch (slot) {
+                case MAINHAND, OFFHAND -> {
                     consumer.accept(Attributes.ATTACK_SPEED, new AttributeModifier(UUID.fromString("154de1d5-370b-4f8a-b317-1e3914c350f9"), Attributes.ATTACK_SPEED.getDescriptionId(), 0.05, AttributeModifier.Operation.MULTIPLY_BASE));
                     consumer.accept(Attributes.MOVEMENT_SPEED, new AttributeModifier(UUID.fromString("922ee974-e7ce-47a6-8500-4b267b6fdf88"), Attributes.MOVEMENT_SPEED.getDescriptionId(), 0.1, AttributeModifier.Operation.MULTIPLY_BASE));
                     consumer.accept(Attributes.MAX_HEALTH, new AttributeModifier(UUID.fromString("50612a79-ec41-4ecf-bcd4-af7f158a0854"), Attributes.MAX_HEALTH.getDescriptionId(), 5, AttributeModifier.Operation.ADDITION));

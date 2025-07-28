@@ -1,8 +1,6 @@
 package com.mogumogumo.mushroom_concept.modifiers;
 
 import com.mogumogumo.mushroom_concept.extend.superclass.BattleModifier;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
@@ -13,8 +11,8 @@ import java.util.Objects;
 public class Echoium extends BattleModifier {
     public float staticdamage(IToolStackView tool, int level, ToolAttackContext context, LivingEntity attacker, LivingEntity livingTarget, float baseDamage, float damage) {
         if (attacker instanceof Player player && context != null) {
-            Objects.requireNonNull(context.getLivingTarget()).hurt(context.getAttacker().damageSources().sonicBoom(player), livingTarget.getArmorValue()*0.5f);
-            return damage ;
+            Objects.requireNonNull(context.getLivingTarget()).hurt(context.getAttacker().damageSources().sonicBoom(player), livingTarget.getArmorValue() * 0.5f);
+            return damage;
         }
         return damage;
     }

@@ -1,10 +1,13 @@
 package com.mogumogumo.mushroom_concept.register;
 
-import com.mogumogumo.mushroom_concept.modifiers.Rat.*;
+import com.mogumogumo.mushroom_concept.modifiers.Rat.BodyBecomeGod;
+import com.mogumogumo.mushroom_concept.modifiers.Rat.RatArmor;
+import com.mogumogumo.mushroom_concept.modifiers.Rat.Ratcopperarmor;
+import com.mogumogumo.mushroom_concept.modifiers.Rat.Ratcopperking;
 import slimeknights.tconstruct.library.modifiers.util.ModifierDeferredRegister;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
-import static com.mogumogumo.mushroom_concept.mushroom_concept.MODID;
+import static com.mogumogumo.mushroom_concept.Mushroom_Concept.MODID;
 
 public class MushRatModifiers {
     public static ModifierDeferredRegister RatModifier = ModifierDeferredRegister.create(MODID);

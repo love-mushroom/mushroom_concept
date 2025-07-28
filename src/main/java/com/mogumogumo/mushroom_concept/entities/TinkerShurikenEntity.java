@@ -4,10 +4,8 @@ import com.mogumogumo.mushroom_concept.MushCutil;
 import com.mogumogumo.mushroom_concept.library.ProjectileInterface.InterfaceCriticalProjectile;
 import com.mogumogumo.mushroom_concept.library.ProjectileInterface.InterfaceDamageProjectile;
 import com.mogumogumo.mushroom_concept.library.utils.ThrowableProjectileAttackUtil;
-import com.mogumogumo.mushroom_concept.modifiers.chuantou;
 import com.mogumogumo.mushroom_concept.register.MushCmodifiers;
 import com.mogumogumo.mushroom_concept.utils.ModifierLevel;
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
@@ -44,40 +42,33 @@ import javax.annotation.Nullable;
 public class TinkerShurikenEntity extends ThrowableItemProjectile implements IEntityAdditionalSpawnData, InterfaceDamageProjectile, InterfaceCriticalProjectile {
 
     /**
-     * 手里剑的物品堆栈。
-     */
-    private ItemStack shurikenStack;
-
-    /**
-     * 手里剑的工具堆栈。
-     */
-    private ToolStack toolStack;
-
-    /**
-     * 手里剑的统计数据。
-     */
-    private StatsNBT stats;
-
-    /**
-     * 额外的伤害加成。
-     */
-    private float bonusDamage = 0;
-
-    /**
-     * 是否为暴击状态。
-     */
-    private boolean critical = false;
-
-    /**
      * 是否在地面上。
      */
     protected boolean inGround;
-
     /**
      * 在地面上的时间。
      */
     protected int inGroundTime;
-
+    /**
+     * 手里剑的物品堆栈。
+     */
+    private ItemStack shurikenStack;
+    /**
+     * 手里剑的工具堆栈。
+     */
+    private ToolStack toolStack;
+    /**
+     * 手里剑的统计数据。
+     */
+    private StatsNBT stats;
+    /**
+     * 额外的伤害加成。
+     */
+    private float bonusDamage = 0;
+    /**
+     * 是否为暴击状态。
+     */
+    private boolean critical = false;
     /**
      * 已过去的刻数。
      */
@@ -92,7 +83,7 @@ public class TinkerShurikenEntity extends ThrowableItemProjectile implements IEn
     /**
      * 使用给定的生物在给定的世界中创建一个新的手里剑实体。
      *
-     * @param world 手里剑将存在的世界。
+     * @param world  手里剑将存在的世界。
      * @param player 投掷手里剑的生物。
      */
     public TinkerShurikenEntity(Level world, LivingEntity player) {
@@ -102,7 +93,7 @@ public class TinkerShurikenEntity extends ThrowableItemProjectile implements IEn
     /**
      * 使用给定的实体类型和世界创建一个新的手里剑实体。
      *
-     * @param type 手里剑实体的类型。
+     * @param type    手里剑实体的类型。
      * @param worldIn 手里剑将存在的世界。
      */
     public TinkerShurikenEntity(EntityType<? extends TinkerShurikenEntity> type, Level worldIn) {
@@ -119,7 +110,7 @@ public class TinkerShurikenEntity extends ThrowableItemProjectile implements IEn
      * @param tool 要设置的工具堆栈。
      */
     public void setTool(ItemStack tool) {
-        if (tool!= null) {
+        if (tool != null) {
             shurikenStack = tool.copy();
             toolStack = ToolStack.from(tool);
             stats = toolStack.getStats();
@@ -248,7 +239,7 @@ public class TinkerShurikenEntity extends ThrowableItemProjectile implements IEn
                 this.setDeltaMovement(Vec3.ZERO);
             }
             // 如果上一个方块状态不等于当前方块状态，并且手里剑应该落下
-            else if (this.lastState!= blockState && this.shouldFall()) {
+            else if (this.lastState != blockState && this.shouldFall()) {
                 // 开始手里剑的落下过程
                 this.startFalling();
             }
@@ -278,7 +269,7 @@ public class TinkerShurikenEntity extends ThrowableItemProjectile implements IEn
         // 获取手里剑的所有者
         Entity player = this.getOwner();
         // 如果所有者存在且被击中的实体是一个生物
-        if (player!= null && entity instanceof LivingEntity) {
+        if (player != null && entity instanceof LivingEntity) {
             // 设置生物的最后一个伤害来源为被击中的实体
             ((LivingEntity) player).setLastHurtMob(entity);
         }
@@ -287,13 +278,13 @@ public class TinkerShurikenEntity extends ThrowableItemProjectile implements IEn
         boolean flag = entity.getType() == EntityType.ENDERMAN;
 
         // 如果手里剑着火并且被击中的实体不是末影人
-        if (this.isOnFire() &&!flag) {
+        if (this.isOnFire() && !flag) {
             // 使被击中的实体着火5秒
             entity.setSecondsOnFire(5);
         }
 
         // 获取手里剑的生物所有者
-        LivingEntity livingOwner = getOwner() instanceof LivingEntity? (LivingEntity) getOwner() : null;
+        LivingEntity livingOwner = getOwner() instanceof LivingEntity ? (LivingEntity) getOwner() : null;
 
         // 如果是客户端或者攻击实体成功
         if (this.level().isClientSide || ThrowableProjectileAttackUtil.attackEntity(shurikenStack.getItem(), this, toolStack, livingOwner, entity, false)) {
@@ -333,13 +324,6 @@ public class TinkerShurikenEntity extends ThrowableItemProjectile implements IEn
         this.setCritical(false);
     }
 
-
-    @Override
-    public void setCritical(boolean critical) {
-        // 设置手里剑是否为暴击状态
-        this.critical = critical;
-    }
-
     @Override
     public boolean getCritical() {
         // 获取手里剑是否为暴击状态
@@ -347,9 +331,9 @@ public class TinkerShurikenEntity extends ThrowableItemProjectile implements IEn
     }
 
     @Override
-    public void setDamage(float damage) {
-        // 设置手里剑的额外伤害值
-        this.bonusDamage = damage*0.5F;
+    public void setCritical(boolean critical) {
+        // 设置手里剑是否为暴击状态
+        this.critical = critical;
     }
 
     @Override
@@ -362,6 +346,12 @@ public class TinkerShurikenEntity extends ThrowableItemProjectile implements IEn
             result *= 2F;
         }
         return result;
+    }
+
+    @Override
+    public void setDamage(float damage) {
+        // 设置手里剑的额外伤害值
+        this.bonusDamage = damage * 0.5F;
     }
 
     @Override

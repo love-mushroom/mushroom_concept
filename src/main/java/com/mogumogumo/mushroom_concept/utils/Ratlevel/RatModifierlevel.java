@@ -3,7 +3,6 @@ package com.mogumogumo.mushroom_concept.utils.Ratlevel;
 import com.github.alexthe666.rats.server.entity.rat.TamedRat;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.fml.ModList;
 import slimeknights.tconstruct.library.modifiers.ModifierId;
 import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
@@ -11,9 +10,10 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 public class RatModifierlevel {
     public static boolean enabled = ModList.get().isLoaded("rats");
+
     public static int getMainhandModifierlevel(LivingEntity entity, ModifierId modifierId) {
         if (entity != null) {
-            if (entity instanceof TamedRat tamedRat&&enabled) {
+            if (entity instanceof TamedRat tamedRat && enabled) {
                 ToolStack toolStack = ToolStack.from(entity.getItemBySlot(EquipmentSlot.MAINHAND));
                 if (!toolStack.isBroken()) {
                     return ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.MAINHAND), modifierId);
@@ -25,7 +25,7 @@ public class RatModifierlevel {
 
     public static int getOffhandModifierlevel(LivingEntity entity, ModifierId modifierId) {
         if (entity != null) {
-            if (entity instanceof TamedRat tamedRat&&enabled) {
+            if (entity instanceof TamedRat tamedRat && enabled) {
                 ToolStack toolStack = ToolStack.from(entity.getItemBySlot(EquipmentSlot.OFFHAND));
                 if (!toolStack.isBroken()) {
                     return ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.OFFHAND), modifierId);
@@ -37,7 +37,7 @@ public class RatModifierlevel {
 
     public static int getEachHandsTotalModifierlevel(LivingEntity entity, ModifierId modifierId) {
         if (entity != null) {
-            if (entity instanceof TamedRat tamedRat&&enabled) {
+            if (entity instanceof TamedRat tamedRat && enabled) {
                 ToolStack toolStack = ToolStack.from(entity.getItemBySlot(EquipmentSlot.MAINHAND));
                 if (!toolStack.isBroken()) {
                     return ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.MAINHAND), modifierId) + ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.OFFHAND), modifierId);
@@ -57,7 +57,7 @@ public class RatModifierlevel {
 
     public static int getHeadModifierlevel(LivingEntity entity, ModifierId modifierId) {
         if (entity != null) {
-            if (entity instanceof TamedRat tamedRat&&enabled) {
+            if (entity instanceof TamedRat tamedRat && enabled) {
                 ToolStack toolStack = ToolStack.from(entity.getItemBySlot(EquipmentSlot.HEAD));
                 if (!toolStack.isBroken()) {
                     return ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.HEAD), modifierId);
@@ -69,7 +69,7 @@ public class RatModifierlevel {
 
     public static int getChestModifierlevel(LivingEntity entity, ModifierId modifierId) {
         if (entity != null) {
-            if (entity instanceof TamedRat tamedRat&&enabled) {
+            if (entity instanceof TamedRat tamedRat && enabled) {
                 ToolStack toolStack = ToolStack.from(entity.getItemBySlot(EquipmentSlot.CHEST));
                 if (!toolStack.isBroken()) {
                     return ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.CHEST), modifierId);
@@ -81,7 +81,7 @@ public class RatModifierlevel {
 
     public static int getLegsModifierlevel(LivingEntity entity, ModifierId modifierId) {
         if (entity != null) {
-            if (entity instanceof TamedRat tamedRat&&enabled) {
+            if (entity instanceof TamedRat tamedRat && enabled) {
                 ToolStack toolStack = ToolStack.from(entity.getItemBySlot(EquipmentSlot.LEGS));
                 if (!toolStack.isBroken()) {
                     return ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.LEGS), modifierId);
@@ -93,7 +93,7 @@ public class RatModifierlevel {
 
     public static int getFeetsModifierlevel(LivingEntity entity, ModifierId modifierId) {
         if (entity != null) {
-            if (entity instanceof TamedRat tamedRat&&enabled) {
+            if (entity instanceof TamedRat tamedRat && enabled) {
                 ToolStack toolStack = ToolStack.from(entity.getItemBySlot(EquipmentSlot.FEET));
                 if (!toolStack.isBroken()) {
                     return ModifierUtil.getModifierLevel(entity.getItemBySlot(EquipmentSlot.FEET), modifierId);

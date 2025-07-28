@@ -34,28 +34,20 @@ public class ReloadTinkerArrows extends NoLevelsModifier implements BowAmmoModif
         Player player = (Player) shooter;
 
         if (player.getOffhandItem().getItem() instanceof ModifiableArrowItem && !ToolStack.from(player.getOffhandItem()).isBroken()
-                && tool.getModifierLevel(TinkerModifiers.multishot.getId()) > 0 ) {
+                && tool.getModifierLevel(TinkerModifiers.multishot.getId()) > 0) {
             ItemStack stack = player.getOffhandItem().copy();
             stack.setCount(64);
             return stack;
-        }
-
-        else if (player.getMainHandItem().getItem() instanceof ModifiableArrowItem && !ToolStack.from(player.getMainHandItem()).isBroken()
-                && tool.getModifierLevel(TinkerModifiers.multishot.getId()) > 0 ) {
+        } else if (player.getMainHandItem().getItem() instanceof ModifiableArrowItem && !ToolStack.from(player.getMainHandItem()).isBroken()
+                && tool.getModifierLevel(TinkerModifiers.multishot.getId()) > 0) {
             ItemStack stack = player.getMainHandItem().copy();
             stack.setCount(64);
             return stack;
-        }
-
-        else if (player.getOffhandItem().getItem() instanceof ModifiableArrowItem && !ToolStack.from(player.getOffhandItem()).isBroken()) {
+        } else if (player.getOffhandItem().getItem() instanceof ModifiableArrowItem && !ToolStack.from(player.getOffhandItem()).isBroken()) {
             return player.getOffhandItem();
-        }
-
-        else if (player.getMainHandItem().getItem() instanceof ModifiableArrowItem && !ToolStack.from(player.getMainHandItem()).isBroken()) {
+        } else if (player.getMainHandItem().getItem() instanceof ModifiableArrowItem && !ToolStack.from(player.getMainHandItem()).isBroken()) {
             return player.getMainHandItem();
-        }
-
-        else {
+        } else {
             Inventory inventory = player.getInventory();
             for (int i = 0; i < inventory.getContainerSize(); i++) {
                 ItemStack itemstack = inventory.getItem(i);
@@ -64,9 +56,7 @@ public class ReloadTinkerArrows extends NoLevelsModifier implements BowAmmoModif
                         ItemStack stack = itemstack.copy();
                         stack.setCount(64);
                         return stack;
-                    }
-
-                    else {
+                    } else {
                         return itemstack;
                     }
                 }
@@ -89,14 +79,10 @@ public class ReloadTinkerArrows extends NoLevelsModifier implements BowAmmoModif
                 if (stack.getItem() == player.getOffhandItem().getItem() && !ToolStack.from(player.getOffhandItem()).isBroken()) {
                     IToolStackView tools = ToolStack.from(player.getOffhandItem());
                     ToolDamageUtil.damageAnimated(tools, needed, shooter);
-                }
-
-                else if (stack.getItem() == player.getMainHandItem().getItem() && !ToolStack.from(player.getMainHandItem()).isBroken()) {
+                } else if (stack.getItem() == player.getMainHandItem().getItem() && !ToolStack.from(player.getMainHandItem()).isBroken()) {
                     IToolStackView tools = ToolStack.from(player.getMainHandItem());
                     ToolDamageUtil.damageAnimated(tools, needed, shooter);
-                }
-
-                else {
+                } else {
                     for (int i = 0; i < inventory.getContainerSize(); i++) {
                         ItemStack itemstack = inventory.getItem(i);
                         if (stack.getItem() == itemstack.getItem() && !ToolStack.from(itemstack).isBroken()) {
@@ -106,9 +92,7 @@ public class ReloadTinkerArrows extends NoLevelsModifier implements BowAmmoModif
                         }
                     }
                 }
-            }
-
-            else {
+            } else {
                 IToolStackView tools = ToolStack.from(ammo);
                 ToolDamageUtil.damageAnimated(tools, needed, shooter);
             }

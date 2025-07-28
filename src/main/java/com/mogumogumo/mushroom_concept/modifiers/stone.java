@@ -9,6 +9,6 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 public class stone extends ArmorModifier {
     public float TrueDamageamount(IToolStackView armor, int level, EquipmentContext context, EquipmentSlot slot, DamageSource source, float amount, boolean isDirectDamage, LivingEntity entity, LivingEntity enemy) {
-        return amount-amount*armor.getCurrentDurability()/(armor.getCurrentDurability()+armor.getDamage())*0.02f;
+        return amount - amount * armor.getCurrentDurability() / (armor.getCurrentDurability() + armor.getDamage()) * 0.02f;
     }
 }

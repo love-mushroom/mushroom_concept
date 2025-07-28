@@ -11,8 +11,8 @@ public class fire_armor extends ArmorModifier {
         if (event.getEntity() != null) {
             LivingEntity entity = event.getEntity();
             if (entity instanceof Player player && ModifierLevel.getTotalArmorModifierlevel(entity, this.getId()) > 0) {
-                if (player.getHealth()<=player.getMaxHealth()/2){
-                    player.heal(player.getMaxHealth()*0.07f);
+                if (player.getHealth() <= player.getMaxHealth() / 2) {
+                    player.heal(player.getMaxHealth() * 0.07f);
                 }
             }
         }

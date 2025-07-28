@@ -17,13 +17,11 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.ForgeEventFactory;
 import org.jetbrains.annotations.NotNull;
 
-import static javax.swing.text.html.parser.DTDConstants.ENTITY;
-import static net.minecraftforge.event.entity.ProjectileImpactEvent.ImpactResult.SKIP_ENTITY;
-
 public class EnderArrow extends AbstractArrow {
     public EnderArrow(EntityType<? extends AbstractArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
+
     public EnderArrow(Level pLevel, LivingEntity pShooter) {
         this(MushCutil.ender_arrow.get(), pLevel);
         this.setPos(pShooter.getX(), pShooter.getEyeY() - 0.1, pShooter.getZ());
@@ -44,7 +42,7 @@ public class EnderArrow extends AbstractArrow {
     public void tick() {
         super.tick();
         HitResult hitresult = ProjectileUtil.getHitResultOnMoveVector(this, this::canHitEntity);
-        boolean flag=this.isNoPhysics();
+        boolean flag = this.isNoPhysics();
         this.setNoGravity(true);
         this.setNoPhysics(true);
         Vec3 vec3 = this.getDeltaMovement();
@@ -57,22 +55,23 @@ public class EnderArrow extends AbstractArrow {
         if (this.tickCount > 400) {
             this.discard();
         }
-        if ( hitresult!=null&&hitresult.getType()!=HitResult.Type.MISS&&!flag){
-            switch (ForgeEventFactory.onProjectileImpactResult(this,hitresult)){
-            case SKIP_ENTITY:
-            if(hitresult.getType()!=HitResult.Type.ENTITY){
-                this.onHit(hitresult);
-                this.hasImpulse=true;
-                break;
-            }
+        if (hitresult != null && hitresult.getType() != HitResult.Type.MISS && !flag) {
+            switch (ForgeEventFactory.onProjectileImpactResult(this, hitresult)) {
+                case SKIP_ENTITY:
+                    if (hitresult.getType() != HitResult.Type.ENTITY) {
+                        this.onHit(hitresult);
+                        this.hasImpulse = true;
+                        break;
+                    }
             }
         }
     }
+
     @Override
     protected void onHitEntity(@NotNull EntityHitResult pResult) {
         if (this.level().isClientSide()) return;
         Entity target = pResult.getEntity();
         float damage = (float) Mth.clamp(this.getDeltaMovement().length() * this.getBaseDamage(), 0.0D, Float.MAX_VALUE);
-        target.hurt(this.damageSources().arrow(this, this.getOwner()), damage );
+        target.hurt(this.damageSources().arrow(this, this.getOwner()), damage);
     }
 }

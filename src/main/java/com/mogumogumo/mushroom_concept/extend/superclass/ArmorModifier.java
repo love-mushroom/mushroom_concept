@@ -1,4 +1,3 @@
-
 package com.mogumogumo.mushroom_concept.extend.superclass;
 
 import com.mogumogumo.mushroom_concept.extend.interfaces.AboutArmor;
@@ -72,8 +71,10 @@ public class ArmorModifier extends Modifier implements AboutArmor, DamageBlockMo
     public boolean hidden() {
         return false;
     }
+
     public void modifierOnInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
     }
+
     public boolean shouldDisplay(boolean advanced) {
         return this.hidden() ? advanced : true;
     }

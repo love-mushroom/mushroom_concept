@@ -16,7 +16,7 @@ public class Kirakira extends BattleModifier {
     @Override
     public void addVolatileData(IToolContext context, ModifierEntry modifier, ToolDataNBT toolDataNBT) {
         int level = modifier.getLevel();
-        toolDataNBT.addSlots(SlotType.ABILITY,  level);
+        toolDataNBT.addSlots(SlotType.ABILITY, level);
     }
 
     @Override

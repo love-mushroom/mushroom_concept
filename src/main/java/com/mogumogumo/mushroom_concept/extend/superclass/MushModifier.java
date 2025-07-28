@@ -1,6 +1,5 @@
 package com.mogumogumo.mushroom_concept.extend.superclass;
 
-import com.mogumogumo.mushroom_concept.extend.superclass.BattleModifier;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;

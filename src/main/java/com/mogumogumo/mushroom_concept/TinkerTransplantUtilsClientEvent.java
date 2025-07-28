@@ -2,7 +2,6 @@ package com.mogumogumo.mushroom_concept;
 
 import com.mogumogumo.mushroom_concept.client.RenderEnderarrow;
 import com.mogumogumo.mushroom_concept.client.RenderTinkerShuriken;
-import net.minecraft.client.renderer.entity.NoopRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.ModelEvent;
@@ -12,7 +11,7 @@ import slimeknights.tconstruct.common.ClientEventBase;
 import slimeknights.tconstruct.gadgets.client.FancyItemFrameRenderer;
 
 @SuppressWarnings("unused")
-@Mod.EventBusSubscriber(modid = mushroom_concept.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = Mushroom_Concept.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class TinkerTransplantUtilsClientEvent extends ClientEventBase {
 
     @SubscribeEvent
